@@ -37,18 +37,19 @@ This generates self-signed SSL certs and Docker image.
 make run 
 ```
 
+You can also run `make up` which will build and run the image in one go.
+
 ## Testing A Stub
 
-`__files/root.json`
-
-```json
+```bash
+$ curl  http://localhost:8080
 {
   "name": "wiremock-server-template",
   "message": "Relax, mock it!"
-}
+}     
 ```
 
-`mappings/root.json`
+The request mapping file (`mappings/root.json`):
 
 ```json
 {
@@ -63,15 +64,16 @@ make run
 }
 ````
 
-Example:
+The stubbed response (`__files/root.json`)
 
-```bash
-$ curl  http://localhost:8080
+```json
 {
   "name": "wiremock-server-template",
   "message": "Relax, mock it!"
-}     
+}
 ```
+
+`mappings/root.json`
 
 ## Adding Stubs
 
