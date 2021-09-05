@@ -1,16 +1,86 @@
-## wiremock
+# wiremock-server-template
 
-A Docker container for WireMock standalone server.  WireMock is an open source web service test double.
-See `http://wiremock.org/docs/` on how to use WireMock.
+This is a Dockerized standalone [WireMock](http://wiremock.org/) server for your API, functional, or perf testing needs.
 
-## Build and Run
+## What's In The Box?
+
+* [WireMock](http://wiremock.org/) standalone server - for serving stubbed API responses
+* [Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/) - for SSL termination, observability, proxying, etc.
+* [Supervisord](http://supervisord.org/) - for running processes in parallel
+* [Docker](https://www.docker.com/) image - for self-contained runtime environment
+
+Quick test:
+
+Open a terminal and run:
+
 ```
-make image run
+$ docker run -it jecklgamis/wiremock-server-template:latest
 ```
-Test an example stub : `curl -v http://localhost:7080/example/get`
 
+In another terminal, run:
+
+```
+$ curl http://localhost:8080 
+```
+
+## Building
+
+```
+make all 
+```
+
+This generates self-signed SSL certs and Docker image.
+
+## Running
+
+```bash
+make run 
+```
+
+## Testing A Stub
+
+`__files/root.json`
+
+```json
+{
+  "name": "wiremock-server-template",
+  "message": "Relax, mock it!"
+}
+```
+
+`mappings/root.json`
+
+```json
+{
+  "request": {
+    "method": "GET",
+    "url": "/"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "root.json"
+  }
+}
+````
+
+Example:
+
+```bash
+$ curl  http://localhost:8080
+{
+  "name": "wiremock-server-template",
+  "message": "Relax, mock it!"
+}     
+```
 
 ## Adding Stubs
-- Add mapping JSON files in `mappings` dir
+
+- Add mapping files in `mappings` dir
 - Add response files in `__files` dir
-- Re build the Docker image (run `make image`)
+- Rebuild and run (`make up`)
+
+## Related Resources
+
+* [gatling-test-example](https://github.com/jecklgamis/gatling-test-example) - for generating your perf test traffic
+* [envoy-proxy-template](https://github.com/jecklgamis/envoy-proxy-template) - for spinning up your own Envoy proxy
+  server
