@@ -27,10 +27,6 @@ jobs:
           echo "Using GITHUB_ACTOR=${GITHUB_ACTOR}"
           echo "Using NAME=${NAME}"
 
-          # Update package references in sources
-          find app -type f -exec sed -i "s/wiremock-server-template/${NAME}/g" {} +
-          find tests -type f -exec sed -i "s/wiremock-server-template/${NAME}/g" {} +
-
           # Replace placeholders in the template-files files
           sed -i "s/%NAME%/${NAME}/g" .github/template-files/*
           sed -i "s/%REPOSITORY%/${GITHUB_REPOSITORY/\//\\/}/g" .github/template-files/*
@@ -42,7 +38,6 @@ jobs:
           # Update Makefile
           find . -name Makefile -type f -exec sed -i "s/wiremock-server-template/${NAME}/g" {} +
           find . -name Makefile -type f -exec sed -i "s/jecklgamis/${ACTOR}/g" {} +
-
 
           # Update Dockerfile
           find . -name Dockerfile -type f -exec sed -i "s/wiremock-server-template/${NAME}/g" {} +
