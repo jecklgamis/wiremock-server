@@ -5,6 +5,7 @@ WIREMOCK_PORT=${WIREMOCK_PORT:-7080}
 
 WIREMOCK_ARGS="${WIREMOCK_ARGS} --container-threads=1024 \
 --port=${WIREMOCK_PORT} \
+--disable-banner \
 --local-response-templating \
 --no-request-journal \
 --jetty-acceptor-threads=4 \
