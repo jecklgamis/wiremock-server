@@ -1,4 +1,4 @@
-FROM envoyproxy/envoy-alpine:v1.19.1
+FROM envoyproxy/envoy-alpine:v1.21-latest
 
 RUN apk update && apk add --no-cache bash curl dumb-init  python3 py3-pip openjdk8-jre
 COPY requirements.txt /
@@ -8,7 +8,7 @@ COPY supervisor.ini /etc/supervisor.d/
 RUN mkdir -p /var/log/supervisor
 
 # supervisor
-ENV WIREMOCK_VERSION 2.30.1
+ENV WIREMOCK_VERSION 2.35.0
 ENV WIREMOCK_HOME /wiremock
 
 # wiremock
