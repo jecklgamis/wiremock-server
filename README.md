@@ -1,6 +1,11 @@
 # wiremock-server-template
 
+[![Build](https://github.com/jecklgamis/wiremock-server-template/actions/workflows/build.yml/badge.svg)](https://github.com/jecklgamis/wiremock-server-template/actions/workflows/build.yml)
+
 This is a Dockerized standalone [WireMock](http://wiremock.org/) server for your API, functional, or perf testing needs.
+
+Docker: `docker run -p 8080:8080 jecklgamis/wiremock-server-template:main`
+
 
 ## What's In The Box?
 
@@ -72,8 +77,6 @@ The stubbed response (`__files/root.json`)
   "message": "Relax, mock it!"
 }
 ```
-
-`mappings/root.json`
 
 ## Adding Stubs
 
