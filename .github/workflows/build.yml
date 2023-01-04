@@ -8,7 +8,7 @@ on:
       types: [ opened, reopened ]
       branches: [ main ]
 jobs:
-  build-with-maven:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
