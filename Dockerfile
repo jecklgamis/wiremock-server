@@ -1,6 +1,7 @@
-FROM envoyproxy/envoy-alpine:v1.21-latest
+FROM envoyproxy/envoy:v1.26-latest
 
-RUN apk update && apk add --no-cache bash curl dumb-init  python3 py3-pip openjdk8-jre
+RUN apt update -y && apt install -y openjdk-8-jre-headless python3 python3-pip curl dumb-init && rm -rf /var/lib/apt/lists/*
+
 COPY requirements.txt /
 RUN pip install --upgrade pip &&  pip install -r /requirements.txt
 
@@ -8,7 +9,7 @@ COPY supervisor.ini /etc/supervisor.d/
 RUN mkdir -p /var/log/supervisor
 
 # supervisor
-ENV WIREMOCK_VERSION 2.35.0
+ENV WIREMOCK_VERSION 2.27.2
 ENV WIREMOCK_HOME /wiremock
 
 # wiremock
@@ -34,4 +35,4 @@ EXPOSE 8080
 EXPOSE 8443
 
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
-CMD ["/usr/bin/supervisord","-c","/etc/supervisor.d/supervisor.ini"]
+CMD ["/usr/local/bin/supervisord","-c","/etc/supervisor.d/supervisor.ini"]
