@@ -87,5 +87,5 @@ The stubbed response (`__files/root.json`)
 ## Related Resources
 
 * [gatling-test-example](https://github.com/jecklgamis/gatling-test-example) - for generating your perf test traffic
-* [envoy-proxy-template](https://github.com/jecklgamis/envoy-proxy-template) - for spinning up your own Envoy proxy
+* [envoy-proxy-example](https://github.com/jecklgamis/envoy-proxy-example) - for spinning up your own Envoy proxy
   server
