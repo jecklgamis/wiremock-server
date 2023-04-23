@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: Checkout sources
         uses: actions/checkout@v2
-      - name: Generate SSL ceerts
-        run: ./generate-ssl-certs.sh
       - name: Log in to Docker Hub
         if: ${{ github.event.repository.name == 'wiremock-server' && github.event_name != 'pull_request' }}
         uses: docker/login-action@v1
