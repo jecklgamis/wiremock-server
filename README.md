@@ -1,6 +1,6 @@
-# wiremock-server-template
+# wiremock-server
 
-[![Build](https://github.com/jecklgamis/wiremock-server-template/actions/workflows/build.yml/badge.svg)](https://github.com/jecklgamis/wiremock-server-template/actions/workflows/build.yml)
+[![Build](https://github.com/jecklgamis/wiremock-server/actions/workflows/build.yml/badge.svg)](https://github.com/jecklgamis/wiremock-server/actions/workflows/build.yml)
 
 This is a Dockerized standalone [WireMock](http://wiremock.org/) server.
 
