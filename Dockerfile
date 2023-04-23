@@ -1,4 +1,4 @@
-FROM envoyproxy/envoy:v1.26-latest
+FROM ubuntu:22.04
 
 RUN apt update -y && apt install -y openjdk-8-jre-headless python3 python3-pip curl dumb-init && rm -rf /var/lib/apt/lists/*
 
@@ -24,15 +24,7 @@ COPY mappings/ ${WIREMOCK_HOME}/mappings/
 COPY run-wiremock.sh /
 RUN chmod +x /run-wiremock.sh
 
-# envoy
-COPY run-envoy.sh /
-RUN chmod +x /run-envoy.sh
-COPY envoy* /etc/envoy/
-COPY server.crt /etc/
-COPY server.key /etc/
-
 EXPOSE 8080
-EXPOSE 8443
 
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 CMD ["/usr/local/bin/supervisord","-c","/etc/supervisor.d/supervisor.ini"]

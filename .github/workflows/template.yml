@@ -7,7 +7,7 @@ jobs:
   prepare:
     name: Prepare
     runs-on: ubuntu-latest
-    if: github.event.repository.name != 'wiremock-server-template'
+    if: github.event.repository.name != 'wiremock-server'
     steps:
       - name: Fetch Sources
         uses: actions/checkout@v2.3.4
@@ -28,24 +28,24 @@ jobs:
           echo "Using NAME=${NAME}"
 
           # Update names in __files and mappings
-          find __files -type f -exec sed -i "s/wiremock-server-template/${NAME}/g" {} +
-          find mappings -type f -exec sed -i "s/wiremock-server-template/${NAME}/g" {} +
+          find __files -type f -exec sed -i "s/wiremock-server/${NAME}/g" {} +
+          find mappings -type f -exec sed -i "s/wiremock-server/${NAME}/g" {} +
 
           # Replace placeholders in the template-files files
           sed -i "s/%NAME%/${NAME}/g" .github/template-files/*
           sed -i "s/%REPOSITORY%/${GITHUB_REPOSITORY/\//\\/}/g" .github/template-files/*
 
           # Update shell scripts
-          find . -name "*.sh" -type f -exec sed -i "s/wiremock-server-template/${NAME}/g" {} +
+          find . -name "*.sh" -type f -exec sed -i "s/wiremock-server/${NAME}/g" {} +
           find . -name "*.sh" -type f -exec sed -i "s/jecklgamis/${ACTOR}/g" {} +
 
           # Update Makefile
-          find . -name Makefile -type f -exec sed -i "s/wiremock-server-template/${NAME}/g" {} +
+          find . -name Makefile -type f -exec sed -i "s/wiremock-server/${NAME}/g" {} +
           find . -name Makefile -type f -exec sed -i "s/jecklgamis/${ACTOR}/g" {} +
 
 
           # Update Dockerfile
-          find . -name Dockerfile -type f -exec sed -i "s/wiremock-server-template/${NAME}/g" {} +
+          find . -name Dockerfile -type f -exec sed -i "s/wiremock-server/${NAME}/g" {} +
           find . -name Dockerfile -type f -exec sed -i "s/Jerrico Gamis/FirstName LastName/g" {} +
           find . -name Dockerfile -type f -exec sed -i "s/jecklgamis@gmail.com/user@some-domain/g" {} +
 

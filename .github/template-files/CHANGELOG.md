@@ -4,4 +4,4 @@
 
 ### Added
 
-- Initial project from [wiremock-server-template](https://github.com/jecklgamis/wiremock-server-template)
+- Initial project from [wiremock-server](https://github.com/jecklgamis/wiremock-server)
