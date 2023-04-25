@@ -26,5 +26,6 @@ RUN chmod +x /run-wiremock.sh
 
 EXPOSE 8080
 
+COPY docker-entrypoint.sh /
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
-CMD ["/usr/local/bin/supervisord","-c","/etc/supervisor.d/supervisor.ini"]
+CMD ["/docker-entrypoint.sh"]
