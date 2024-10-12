@@ -1,4 +1,4 @@
-IMAGE_NAME:=jecklgamis/wiremock-server
+IMAGE_NAME:=wiremock-server
 IMAGE_TAG:=main
 
 default:
