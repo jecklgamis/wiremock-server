@@ -1,4 +1,5 @@
 FROM ubuntu:24.04
+LABEL org.opencontainers.image.authors="Jerrico Gamis <jecklgamis@gmail.com>"
 
 RUN apt update -y && apt install -y openjdk-21-jre-headless curl && rm -rf /var/lib/apt/lists/*
 
