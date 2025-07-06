@@ -36,6 +36,30 @@ docker run -it wiremock-server:main
 - Add response files in `__files` directory
 - Rebuild and run (`make up`)
 
+Example request mapping:
+
+`mappings/get-root.json`:
+```json
+{
+  "request": {
+    "method": "GET",
+    "url": "/"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "root.json"
+  }
+}
+```
+
+`__files/root.json`:
+```json
+{
+  "name": "wiremock-server",
+  "message": "Relax, mock it!"
+}
+```
+
 ## Testing
 
 Run a simple `curl` test:
