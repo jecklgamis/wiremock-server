@@ -9,7 +9,6 @@ functional or perf testing.
 Docker: `docker run -p 8080:8080 jecklgamis/wiremock-server:main`
 
 ## Building
-
 ```bash
 make all
 ```
@@ -18,6 +17,23 @@ make all
 
 ```bash
 make up
+```
+
+## Testing
+
+Run a simple `curl` test: 
+```bash
+% curl http://localhost:8080
+{
+  "name": "wiremock-server",
+  "message": "Relax, mock it!"
+}%
+```
+Run some Gatling perf tests:
+```bash
+TARGET_HOST=$(ipconfig getifaddr en0)
+docker run -e "JAVA_OPTS=-DbaseUrl=http://$TARGET_HOST:8080/ -DdurationMin=1 -DrequestPerSecond=10" \
+  -e SIMULATION_NAME=gatling.test.example.simulation.ExampleSimulation jecklgamis/gatling-java-example:main
 ```
 
 ## Adding Stubs
