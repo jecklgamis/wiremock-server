@@ -5,9 +5,6 @@
 This is a Dockerized standalone [WireMock](http://wiremock.org/) server. This is reference implementation on how can use
 it to serve canned API responses in your functional or perf testing tasks.
 
-I would highly recommend going to https://wiremock.org/ if your need more Wiremock support or for their enterprise
-offerings. Otherwise, if you just want to explore, read on.
-
 ## Requirements
 
 * Java 21
