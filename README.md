@@ -2,15 +2,39 @@
 
 [![Build](https://github.com/jecklgamis/wiremock-server/actions/workflows/build.yml/badge.svg)](https://github.com/jecklgamis/wiremock-server/actions/workflows/build.yml)
 
-This is a Dockerized standalone [WireMock](http://wiremock.org/) server. You can use it to serve canned API responses in
-your
-functional or perf testing.
+This is a Dockerized standalone [WireMock](http://wiremock.org/) server. This is reference implementation on how can use
+it to serve canned API responses in your functional or perf testing tasks.
 
-Docker: `docker run -p 8080:8080 jecklgamis/wiremock-server:main`
+I would highly recommend going to https://wiremock.org/ if your need more Wiremock support or for their enterprise
+offerings. Otherwise, if you just want to explore, read on.
+
+## Requirements
+
+* Java 21
+* Docker
+* GNU Make
+
+## Quick Start
+To test drive, you can run the pre-built Docker container from Docker Hub:
+```bash
+% docker run -p 8080:8080 jecklgamis/wiremock-server:main
+````
+Run a simple `curl` test.
+```bash
+curl http://localhost:8080
+```
+Example output:
+```bash
+{
+  "name": "wiremock-server",
+  "message": "Relax, mock it!"
+}
+```
 
 ## Building
+
 ```bash
-make all
+docker build it wiremock-server:latest
 ```
 
 ## Running
@@ -21,7 +45,8 @@ make up
 
 ## Testing
 
-Run a simple `curl` test: 
+Run a simple `curl` test:
+
 ```bash
 % curl http://localhost:8080
 {
@@ -29,7 +54,9 @@ Run a simple `curl` test:
   "message": "Relax, mock it!"
 }%
 ```
+
 Run some Gatling perf tests:
+
 ```bash
 TARGET_HOST=$(ipconfig getifaddr en0)
 docker run -e "JAVA_OPTS=-DbaseUrl=http://$TARGET_HOST:8080/ -DdurationMin=1 -DrequestPerSecond=10" \
@@ -45,6 +72,7 @@ docker run -e "JAVA_OPTS=-DbaseUrl=http://$TARGET_HOST:8080/ -DdurationMin=1 -Dr
 ## Related Resources
 
 Gatling load generators:
+
 * [gatling-java-example](https://github.com/jecklgamis/gatling-java-example)
 * [gatling-kotlin-example](https://github.com/jecklgamis/gatling-kotlin-example)
 * [gatling-scala-example](https://github.com/jecklgamis/gatling-scala-example)

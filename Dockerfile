@@ -17,5 +17,6 @@ COPY mappings/ $WIREMOCK_HOME/mappings/
 
 EXPOSE 8080
 
+WORKDIR $WIREMOCK_HOME
 COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
