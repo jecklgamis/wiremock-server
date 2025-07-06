@@ -14,7 +14,7 @@ it to serve canned API responses in your functional or perf testing tasks.
 ## Quick Start
 To test drive, you can run the pre-built Docker container from Docker Hub:
 ```bash
-% docker run -p 8080:8080 jecklgamis/wiremock-server:main
+docker run -p 8080:8080 jecklgamis/wiremock-server:main
 ````
 and point your browser to http://localhost:8080.
 
