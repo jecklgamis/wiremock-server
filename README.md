@@ -19,29 +19,25 @@ To test drive, you can run the pre-built Docker container from Docker Hub:
 ```bash
 % docker run -p 8080:8080 jecklgamis/wiremock-server:main
 ````
-Run a simple `curl` test.
-```bash
-curl http://localhost:8080
-```
-Example output:
-```bash
-{
-  "name": "wiremock-server",
-  "message": "Relax, mock it!"
-}
-```
+and point your browser to http://localhost:8080.
 
 ## Building
 
 ```bash
-docker build it wiremock-server:latest
+docker build -t wiremock-server:main .
 ```
 
 ## Running
 
 ```bash
-make up
+docker run -it wiremock-server:main
 ```
+
+## Adding Stubs
+
+- Add mapping files in `mappings` directory
+- Add response files in `__files` directory
+- Rebuild and run (`make up`)
 
 ## Testing
 
@@ -62,12 +58,6 @@ TARGET_HOST=$(ipconfig getifaddr en0)
 docker run -e "JAVA_OPTS=-DbaseUrl=http://$TARGET_HOST:8080/ -DdurationMin=1 -DrequestPerSecond=10" \
   -e SIMULATION_NAME=gatling.test.example.simulation.ExampleSimulation jecklgamis/gatling-java-example:main
 ```
-
-## Adding Stubs
-
-- Add mapping files in `mappings` directory
-- Add response files in `__files` directory
-- Rebuild and run (`make up`)
 
 ## Related Resources
 
