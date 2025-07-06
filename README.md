@@ -89,8 +89,8 @@ docker run -e "JAVA_OPTS=-DbaseUrl=http://$TARGET_HOST:8080/ -DdurationMin=1 -Dr
 
 If you are using Wiremock to serve a relatively large number of services, you will have to design it to scale.
 
-- Start multiple instances behind a load balancer (i.e. Kubernetes or AWS ECS)
-- Tune the CPU (Container runtime specific)
+- Start multiple instances behind a load balancer (e.g. Kubernetes or AWS ECS)
+- Tune the CPU (container runtime specific)
 - Tune the Java heap size (-XmX)
 - Tune the web container (Jetty)
     - container-threads (concurrent number of requests = response time * traffic as general guide)
