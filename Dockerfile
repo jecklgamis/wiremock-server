@@ -3,7 +3,7 @@ LABEL org.opencontainers.image.authors="Jerrico Gamis <jecklgamis@gmail.com>"
 
 RUN apt update -y && apt install -y openjdk-21-jre-headless curl && rm -rf /var/lib/apt/lists/*
 
-ENV WIREMOCK_VERSION=3.13.1
+ENV WIREMOCK_VERSION=3.13.2
 ENV WIREMOCK_HOME=/wiremock
 
 RUN mkdir -p $WIREMOCK_HOME

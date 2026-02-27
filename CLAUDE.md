@@ -33,7 +33,7 @@ Verify with: `curl http://localhost:8080/`
 
 ## Key Environment Variables (in container)
 
-- `WIREMOCK_VERSION` — WireMock JAR version (currently 3.13.1)
+- `WIREMOCK_VERSION` — WireMock JAR version (currently 3.13.2)
 - `WIREMOCK_HOME` — `/wiremock`
 - `WIREMOCK_PORT` — Default 8080
 - `WIREMOCK_ARGS` — Additional WireMock CLI arguments
