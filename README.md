@@ -1,6 +1,6 @@
 # wiremock-server
 
-[![Build](https://github.com/jecklgamis/wiremock-server/actions/workflows/build.yml/badge.svg)](https://github.com/jecklgamis/wiremock-server/actions/workflows/build.yml)
+[![Build](https://github.com/jecklgamis/wiremock-server/actions/workflows/build.yaml/badge.svg)](https://github.com/jecklgamis/wiremock-server/actions/workflows/build.yaml)
 
 This is a Dockerized standalone [WireMock 3.13.2](http://wiremock.org/) server. This is a reference implementation on how
 you can use it to serve canned API responses in your functional or performance testing tasks.
