@@ -114,3 +114,12 @@ Gatling load generators:
 * [gatling-kotlin-example](https://github.com/jecklgamis/gatling-kotlin-example)
 * [gatling-scala-example](https://github.com/jecklgamis/gatling-scala-example)
 
+## Load Testing
+
+Load tests use [resonate](https://github.com/jecklgamis/resonate). With the app running:
+
+```bash
+brew install jecklgamis/tap/resonate
+./run-perf-tests.sh
+```
+See [perf-tests](perf-tests) for the scenarios and details.

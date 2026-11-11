@@ -1,0 +1,5 @@
+
+# resonate reports
+perf-tests/*-report.html
+perf-tests/*-report.json
+perf-tests/*-results.jsonl
